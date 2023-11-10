@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransparentClasses", "TransparentClasses\TransparentClasses.csproj", "{417A6345-89B5-44C9-93B7-F642F00A23EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransparentClasses.Debug", "TransparentClasses.Debug\TransparentClasses.Debug.csproj", "{8FA92214-F62E-45DF-9CB3-603C205A39F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{417A6345-89B5-44C9-93B7-F642F00A23EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{417A6345-89B5-44C9-93B7-F642F00A23EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{417A6345-89B5-44C9-93B7-F642F00A23EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{417A6345-89B5-44C9-93B7-F642F00A23EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FA92214-F62E-45DF-9CB3-603C205A39F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FA92214-F62E-45DF-9CB3-603C205A39F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FA92214-F62E-45DF-9CB3-603C205A39F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FA92214-F62E-45DF-9CB3-603C205A39F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B6545B1-CECF-431B-B938-2BE3CEC8DA7C}
+	EndGlobalSection
+EndGlobal
