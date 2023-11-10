@@ -1,79 +1,68 @@
-﻿using System.Reflection;
-using TransparentClasses;
-using T3 = TestClass3;
+﻿using TransparentClasses;
 
 var t = new TransparentTest()
 {
     Object = new()
 };
 
-//t.PublicMethod("", 234);
+t.PublicMethod("1", 2);
+t.PrivateVoidMethodNoParams();
+t.PrivateIntMethodNoParams();
+t.PrivateVoidMethodWithParams(10, "some string", new SomeObject { Value = 90 });
+t.PrivateStringMethodWithParams(20, "some string 2", new SomeObject { Value = 800 });
+t.PrivateVoidGenericMethodWithParams<System.Threading.Tasks.Dataflow.ActionBlock<int>>(30, "some string 3", new SomeObject { Value = 2 });
+t.PrivateStringGeneric2MethodWithParams<int, SomeObject>(40, "some string 4", new SomeObject { Value = -789 });
 
-Console.WriteLine(t.);
 
-
-
-//[TransparentObject<TestClass1>]
-
-
-public partial class TransparentTest : TransparentObject<TestClass2>
-{
-}
+public partial class TransparentTest : TransparentObject<TestClass1>
+{ }
 
 public class TestClass1
 {
-    public void PublicMethod(string a, int b) { }
-
-    private int PrivateMethod() { return 10; }
-
-    private string PrivMeth2(int abc, string value)
+    public void PublicMethod(string a, int b) 
     {
-        return $"{abc} {value}";
+        Console.WriteLine(nameof(PublicMethod));
     }
 
-    private string PrGenMeth<T>(int a)
+    private void PrivateVoidMethodNoParams() 
+    { 
+        Console.WriteLine(nameof(PrivateVoidMethodNoParams));
+    }
+
+    private int PrivateIntMethodNoParams()
     {
-        return $"{typeof(T)} {a + 1}";
+        Console.WriteLine(nameof(PrivateIntMethodNoParams));
+        return 111;
+    }
+
+    private void PrivateVoidMethodWithParams(int a, string b, SomeObject c)
+    {
+        Console.WriteLine($"{nameof(PrivateVoidMethodWithParams)}; {a}, {b}, {c}");
+    }
+
+    private string PrivateStringMethodWithParams(int a, string b, SomeObject c)
+    {
+        var str = $"{nameof(PrivateStringMethodWithParams)}; {a}, {b}, {c}";
+        Console.WriteLine(str);
+        return str;
+    }
+
+    private void PrivateVoidGenericMethodWithParams<T>(int a, string b, SomeObject c)
+    {
+        Console.WriteLine($"{nameof(PrivateVoidGenericMethodWithParams)} {typeof(T)}; {a}, {b}, {c}");
+    }
+
+    private string PrivateStringGeneric2MethodWithParams<T1, T2>(int a, string b, SomeObject c)
+    {
+        var str = $"{nameof(PrivateStringGeneric2MethodWithParams)} {typeof(T1)} {typeof(T2)}; {a}, {b}, {c}";
+        Console.WriteLine(str);
+        return str;
     }
 }
 
-public class TestClass2
+public record SomeObject
 {
-    private int _prField;
-
-    private string? _prProp { get; set; }
-
-    public virtual void PublicMethod23(int count)
-    {
-        var c = 21;
-
-        if (count > 0)
-        {
-            c += 67;
-        }
-        else
-        {
-            return;
-        }
-
-        var t = new TestClass1();
-        t.PublicMethod("", 34);
-    }
-
-    private void PrivateMethod34() { }
-
-    private int PrivateMethodThatReturns()
-    {
-        return 0;
-    }
-
-    void PrivateGenericMethod<T>() { }
+    public int Value { get; set; }
 }
 
-public class TestClass3
-{
-    public void PublicMethod23() { }
-
-    private void PrivateMethod34() { }
-}
 

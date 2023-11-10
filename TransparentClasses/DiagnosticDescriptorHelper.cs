@@ -6,7 +6,7 @@ namespace TransparentClasses
     {
         public static DiagnosticDescriptor CreateWarning(string message, int code)
         {
-            var id = string.Format("{0:4}", code);
+            var id = code.ToString("D4");
 
             return new DiagnosticDescriptor(
                 id: $"TC{id}",

@@ -47,14 +47,6 @@ namespace TransparentClasses
                         continue;
                     }
 
-                    //if (string.IsNullOrEmpty(targetType.ContainingNamespace.Name))
-                    //{
-                    //    var error = DiagnosticDescriptorHelper.CreateWarning("Target type must be in namespace", 2);
-                    //    var location = Location.Create(classDeclaration.SyntaxTree, classDeclaration.Span);
-                    //    context.ReportDiagnostic(Diagnostic.Create(error, location));
-                    //    continue;
-                    //}
-
                     // Check
                     var typeToMakeTransparent = baseType.TypeArguments[0];
 
