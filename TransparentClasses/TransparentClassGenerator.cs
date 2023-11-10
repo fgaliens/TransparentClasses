@@ -1,6 +1,7 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using System.Diagnostics;
+using TransparentClasses.Extensions;
 
 namespace TransparentClasses
 {
@@ -24,7 +25,6 @@ namespace TransparentClasses
             var classes = syntaxReciver.ClassDeclarationSyntaxReceiver.ClassDeclarations;
 
             var transparentObjectClass = context.Compilation.GetTypeByMetadataName("TransparentClasses.TransparentObject`1");
-
 
             foreach (var classDeclaration in classes)
             {
@@ -55,7 +55,7 @@ namespace TransparentClasses
                     var node = TransparentClassBuilder.GenerateClass(typeToMakeTransparent, targetType, baseType);
                     var text = node.ToString();
 
-                    context.AddSource($"{typeToMakeTransparent.Name}.Transparent.g.cs", text);
+                    context.AddSource($"{targetType.GetFullName()}.Transparent.g.cs", text);
                 }
             }
         }
